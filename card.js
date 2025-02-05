@@ -106,25 +106,22 @@ const questions = [
         name: `Inbox open. Shoot me an ${chalk.green.bold("email")}`,
         value: () => {
           open("mailto:Mohamed.Gardoud@gmail.com");
-          console.log("\nEvery great project starts with a simple message. Let us connect!.\n");
+          console.log(
+            "\nEvery great project starts with a simple message. Let us connect!.\n"
+          );
         },
       },
       {
         name: `Download my ${chalk.magentaBright.bold("Resume")}?`,
         value: () => {
-          const resumeFileName = "./Credentials/Mohamed_Gardoud_Resume.pdf";
-          const resumePath = path.join(process.cwd(), resumeFileName);
+          const resumeUrl =
+            "https://github.com/M0hamedGard0ud/npx_business_card/raw/main/Credentials/Mohamed_Gardoud_Resume.pdf";
 
-          if (fs.existsSync(resumePath)) {
-            console.log(`\nOpening ${resumeFileName}...`);
-            open(resumePath);
-          } else {
-            console.log(
-              `\n❌ Resume not found! Please make sure ${resumeFileName} is in this directory.\n`
-            );
-          }
+          console.log(`\n📄 Opening Resume from GitHub...\n`);
+          open(resumeUrl);
         },
       },
+
       {
         name: "Just quit.",
         value: () => {
